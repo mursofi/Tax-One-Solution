@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard — PajakOne</title>
+    <meta name="description" content="Dashboard PajakOne - Kelola konsultasi pajak, SPT, dan langganan Anda.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-app">
+        <!-- Sidebar Overlay (Mobile) -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="logo">
+                    <div class="logo-mark">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                        </svg>
+                    </div>
+                    Pajak<span class="text-gradient">One</span>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="sidebar-section-label">Menu Utama</div>
+                <ul class="sidebar-menu">
+                    <li>
+                        <a href="#" data-page="overview" class="active">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="7" height="7"/>
+                                <rect x="14" y="3" width="7" height="7"/>
+                                <rect x="14" y="14" width="7" height="7"/>
+                                <rect x="3" y="14" width="7" height="7"/>
+                            </svg>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-page="consultation">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                            Konsultasi
+                            <span class="badge">3</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-page="spt">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                            </svg>
+                            SPT Tahunan
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-page="documents">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
+                            </svg>
+                            Dokumen
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-page="articles">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                            </svg>
+                            Artikel
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-page="history">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                            Riwayat
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="sidebar-section-label">Akun</div>
+                <ul class="sidebar-menu">
+                    <li>
+                        <a href="#" data-page="profile">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            Profil
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-page="subscription">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            Langganan
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-page="settings">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="3"/>
+                                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                            </svg>
+                            Pengaturan
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Upgrade Card (only shown for free users) -->
+            <div class="sidebar-upgrade-card" id="sidebarUpgrade">
+                <h4>Upgrade ke Tax Care</h4>
+                <p>Dapatkan konsultan pribadi dan fitur premium.</p>
+                <button class="btn" data-page="subscription">Upgrade Sekarang</button>
+            </div>
+
+            <div class="sidebar-footer">
+                <ul class="sidebar-menu">
+                    <li>
+                        <button id="sidebarLogout">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                                <polyline points="16 17 21 12 16 7"/>
+                                <line x1="21" y1="12" x2="9" y2="12"/>
+                            </svg>
+                            Logout
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="top-bar-left">
+                    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="3" y1="6" x2="21" y2="6"/>
+                            <line x1="3" y1="12" x2="21" y2="12"/>
+                            <line x1="3" y1="18" x2="21" y2="18"/>
+                        </svg>
+                    </button>
+                    <div class="top-bar-title">
+                        <h1 id="topBarTitle">Dashboard</h1>
+                        <p id="topBarSubtitle">Selamat datang kembali</p>
+                    </div>
+                </div>
+
+                <div class="top-bar-right">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" style="width: 40px; height: 40px; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: var(--text-secondary); border: 1px solid var(--border-default); background: var(--bg-elevated);">
+                        <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                        </svg>
+                        <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                            <circle cx="12" cy="12" r="5"/>
+                            <line x1="12" y1="1" x2="12" y2="3"/>
+                            <line x1="12" y1="21" x2="12" y2="23"/>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                            <line x1="1" y1="12" x2="3" y2="12"/>
+                            <line x1="21" y1="12" x2="23" y2="12"/>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                        </svg>
+                    </button>
+
+                    <div style="position: relative;">
+                        <button class="user-menu-btn" id="userMenuBtn">
+                            <div class="user-menu-avatar" id="userAvatarDisplay">U</div>
+                            <div class="user-menu-info">
+                                <strong id="userNameDisplay">User</strong>
+                                <span id="userRoleDisplay">free</span>
+                            </div>
+                        </button>
+
+                        <div class="user-dropdown" id="userDropdown">
+                            <div class="user-dropdown-header">
+                                <strong id="dropdownName">User</strong>
+                                <span id="dropdownEmail">user@email.com</span>
+                            </div>
+                            <a href="#" data-nav="profile">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                                Profil Saya
+                            </a>
+                            <a href="#" data-nav="subscription">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                                Langganan
+                            </a>
+                            <a href="#" data-nav="settings">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="3"/>
+                                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                                </svg>
+                                Pengaturan
+                            </a>
+                            <div class="divider"></div>
+                            <button id="logoutBtn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                                    <polyline points="16 17 21 12 16 7"/>
+                                    <line x1="21" y1="12" x2="9" y2="12"/>
+                                </svg>
+                                Logout
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content">
+
+                <!-- OVERVIEW PAGE -->
+                <div class="dashboard-page active" id="page-overview">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-card-header">
+                                <div>
+                                    <div class="stat-card-label">Pajak Terutang (YTD)</div>
+                                    <div class="stat-card-value">Rp 12.450.000</div>
+                                </div>
+                                <div class="stat-card-icon brand">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <line x1="12" y1="1" x2="12" y2="23"/>
+                                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="stat-card-change positive">↑ 12% dari bulan lalu</div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-card-header">
+                                <div>
+                                    <div class="stat-card-label">SPT Dilaporkan</div>
+                                    <div class="stat-card-value">8/12</div>
+                                </div>
+                                <div class="stat-card-icon success">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="20 6 9 17 4 12"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="stat-card-change positive">Tepat waktu</div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-card-header">
+                                <div>
+                                    <div class="stat-card-label">Deadline Berikutnya</div>
+                                    <div class="stat-card-value">5 Hari</div>
+                                </div>
+                                <div class="stat-card-icon warning">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <polyline points="12 6 12 12 16 14"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="stat-card-change negative">PPh Masa Juli</div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-card-header">
+                                <div>
+                                    <div class="stat-card-label">Konsultasi Bulan Ini</div>
+                                    <div class="stat-card-value">4</div>
+                                </div>
+                                <div class="stat-card-icon brand">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="stat-card-change positive">2 belum dibalas</div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-grid">
+                        <div class="dashboard-card">
+                            <div class="dashboard-card-header">
+                                <h3>Aktivitas Terbaru</h3>
+                                <button class="btn btn-ghost btn-sm">Lihat Semua</button>
+                            </div>
+                            <div class="activity-list">
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="20 6 9 17 4 12"/>
+                                        </svg>
+                                    </div>
+                                    <div class="activity-content">
+                                        <strong>SPT PPh Masa Juni dilaporkan</strong>
+                                        <span>Oleh konsultan Anita Rahmawati</span>
+                                    </div>
+                                    <div class="activity-time">2 hari lalu</div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                            <polyline points="14 2 14 8 20 8"/>
+                                        </svg>
+                                    </div>
+                                    <div class="activity-content">
+                                        <strong>Review pembukuan Q2 selesai</strong>
+                                        <span>3 koreksi fiskal ditemukan</span>
+                                    </div>
+                                    <div class="activity-time">5 hari lalu</div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="activity-content">
+                                        <strong>Pesan baru dari konsultan</strong>
+                                        <span>"Pak, ada dokumen yang perlu dilengkapi..."</span>
+                                    </div>
+                                    <div class="activity-time">1 minggu lalu</div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
+                                        </svg>
+                                    </div>
+                                    <div class="activity-content">
+                                        <strong>Dokumen diupload</strong>
+                                        <span>Invoice Juli 2026.pdf</span>
+                                    </div>
+                                    <div class="activity-time">2 minggu lalu</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-card">
+                            <div class="dashboard-card-header">
+                                <h3>Deadline Mendatang</h3>
+                            </div>
+                            <div class="deadline-list">
+                                <div class="deadline-item urgent">
+                                    <div>
+                                        <strong>PPh Masa Juli</strong>
+                                        <span>SPT Masa</span>
+                                    </div>
+                                    <div class="date">20 Jul</div>
+                                </div>
+                                <div class="deadline-item warning">
+                                    <div>
+                                        <strong>PPN Masa Juli</strong>
+                                        <span>SPT Masa</span>
+                                    </div>
+                                    <div class="date">20 Jul</div>
+                                </div>
+                                <div class="deadline-item">
+                                    <div>
+                                        <strong>PPh 21 Karyawan</strong>
+                                        <span>Bukti Potong</span>
+                                    </div>
+                                    <div class="date">20 Jul</div>
+                                </div>
+                                <div class="deadline-item">
+                                    <div>
+                                        <strong>SPT Tahunan 2026</strong>
+                                        <span>31 Maret 2027</span>
+                                    </div>
+                                    <div class="date">264 hari</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONSULTATION PAGE (Paywalled for free users) -->
+                <div class="dashboard-page" id="page-consultation">
+                    <div class="paywall-page" id="consultationPaywall" style="display: none;">
+                        <div class="paywall-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
+                        <h2>Upgrade ke Tax Care</h2>
+                        <p>Fitur ini hanya tersedia untuk pelanggan berlangganan.</p>
+                        <div class="paywall-benefits">
+                            <h4>Yang akan Anda dapatkan:</h4>
+                            <ul>
+                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Chat langsung dengan Konsultan Pajak bersertifikat</li>
+                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Review SPT sebelum dilaporkan ke DJP</li>
+                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Pendampingan Pemeriksaan Pajak</li>
+                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Tax Planning untuk penghematan legal</li>
+                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Prioritas respon dalam 2 jam kerja</li>
+                            </ul>
+                        </div>
+                        <div class="paywall-actions">
+                            <button class="btn btn-primary btn-lg" data-page="subscription">Upgrade Sekarang</button>
+                            <button class="btn btn-secondary btn-lg" data-page="overview">Kembali ke Dashboard</button>
+                        </div>
+                    </div>
+
+                    <div class="consultation-layout" id="consultationContent">
+                        <div class="consultant-list">
+                            <h4>Konsultan Anda</h4>
+                            <div class="consultant-item active">
+                                <div class="consultant-avatar online">AR</div>
+                                <div class="consultant-info">
+                                    <strong>Anita Rahmawati, BKP</strong>
+                                    <span>Spesialis UMKM</span>
+                                </div>
+                            </div>
+                            <div class="consultant-item">
+                                <div class="consultant-avatar">BS</div>
+                                <div class="consultant-info">
+                                    <strong>Budi Santoso, BKP</strong>
+                                    <span>Spesialis Korporasi</span>
+                                </div>
+                            </div>
+                            <div class="consultant-item">
+                                <div class="consultant-avatar online">HW</div>
+                                <div class="consultant-info">
+                                    <strong>Hendra Wijaya, BKP</strong>
+                                    <span>Spesialis Profesi Bebas</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chat-window">
+                            <div class="chat-header">
+                                <div class="consultant-avatar online">AR</div>
+                                <div>
+                                    <strong style="display: block; font-size: 14px;">Anita Rahmawati, BKP</strong>
+                                    <span style="font-size: 12px; color: var(--success-500);">Online</span>
+                                </div>
+                            </div>
+
+                            <div class="chat-messages" id="chatMessages">
+                                <div class="chat-message consultant">
+                                    Selamat siang, Pak. Saya sudah review pembukuan bulan ini. Ada beberapa hal yang perlu didiskusikan.
+                                    <span class="time">10:30</span>
+                                </div>
+                                <div class="chat-message user">
+                                    Siang bu. Baik, silakan.
+                                    <span class="time">10:32</span>
+                                </div>
+                                <div class="chat-message consultant">
+                                    Pertama, ada biaya entertainment sebesar Rp 8 juta tanpa daftar nominatif. Ini perlu dikoreksi fiskal positif.
+                                    <span class="time">10:33</span>
+                                </div>
+                            </div>
+
+                            <div class="chat-input">
+                                <input type="text" id="chatInput" placeholder="Ketik pesan ke konsultan...">
+                                <button id="chatSendBtn">Kirim</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SPT PAGE (Paywalled) -->
+                <div class="dashboard-page" id="page-spt">
+                    <div class="paywall-page" id="sptPaywall" style="display: none;">
+                        <div class="paywall-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                            </svg>
+                        </div>
+                        <h2>Upgrade ke Tax Care</h2>
+                        <p>Review SPT oleh konsultan bersertifikat hanya untuk pelanggan berlangganan.</p>
+                        <div class="paywall-benefits">
+                            <h4>Yang akan Anda dapatkan:</h4>
+                            <ul>
+                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Review SPT oleh konsultan sebelum lapor</li>
+                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Garansi kepatuhan tertulis</li>
+                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Pendampingan jika ada pemeriksaan</li>
+                            </ul>
+                        </div>
+                        <div class="paywall-actions">
+                            <button class="btn btn-primary btn-lg" data-page="subscription">Upgrade Sekarang</button>
+                            <button class="btn btn-secondary btn-lg" data-page="overview">Kembali</button>
+                        </div>
+                    </div>
+
+                    <div id="sptContent" style="display: none;">
+                        <div class="dashboard-card">
+                            <div class="dashboard-card-header">
+                                <h3>SPT Tahunan Anda</h3>
+                            </div>
+                            <p>SPT Tahunan 2025 Anda sudah dilaporkan pada 15 Maret 2026. Status: <strong style="color: var(--success-500);">Diterima DJP</strong></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DOCUMENTS PAGE (Paywalled) -->
+                <div class="dashboard-page" id="page-documents">
+                    <div class="paywall-page" id="documentsPaywall" style="display: none;">
+                        <div class="paywall-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
+                            </svg>
+                        </div>
+                        <h2>Upgrade ke Tax Care</h2>
+                        <p>Upload dan kelola dokumen pajak Anda dengan aman bersama konsultan.</p>
+                        <div class="paywall-benefits">
+                            <h4>Yang akan Anda dapatkan:</h4>
+                            <ul>
+                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Upload dokumen tanpa batas</li>
+                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Enkripsi end-to-end</li>
+                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Arsip digital 10 tahun</li>
+                            </ul>
+                        </div>
+                        <div class="paywall-actions">
+                            <button class="btn btn-primary btn-lg" data-page="subscription">Upgrade Sekarang</button>
+                            <button class="btn btn-secondary btn-lg" data-page="overview">Kembali</button>
+                        </div>
+                    </div>
+
+                    <div id="documentsContent" style="display: none;">
+                        <div class="upload-zone">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="17 8 12 3 7 8"/>
+                                <line x1="12" y1="3" x2="12" y2="15"/>
+                            </svg>
+                            <h4>Upload Dokumen Pajak</h4>
+                            <p>Drag & drop atau klik untuk memilih file. Maksimal 10MB per file.</p>
+                            <button class="btn btn-primary">Pilih File</button>
+                        </div>
+
+                        <div class="documents-list">
+                            <div class="document-item">
+                                <div class="document-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                        <polyline points="14 2 14 8 20 8"/>
+                                    </svg>
+                                </div>
+                                <div class="document-info">
+                                    <strong>SPT PPh Tahunan 2025.pdf</strong>
+                                    <span>2.4 MB • Diupload 15 Mar 2026</span>
+                                </div>
+                                <div class="document-actions">
+                                    <button class="icon-btn" title="Download">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                            <polyline points="7 10 12 15 17 10"/>
+                                            <line x1="12" y1="15" x2="12" y2="3"/>
+                                        </svg>
+                                    </button>
+                                    <button class="icon-btn" title="Delete">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="3 6 5 6 21 6"/>
+                                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="document-item">
+                                <div class="document-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                        <polyline points="14 2 14 8 20 8"/>
+                                    </svg>
+                                </div>
+                                <div class="document-info">
+                                    <strong>Invoice Juli 2026.pdf</strong>
+                                    <span>1.1 MB • Diupload 5 Jul 2026</span>
+                                </div>
+                                <div class="document-actions">
+                                    <button class="icon-btn" title="Download">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                            <polyline points="7 10 12 15 17 10"/>
+                                            <line x1="12" y1="15" x2="12" y2="3"/>
+                                        </svg>
+                                    </button>
+                                    <button class="icon-btn" title="Delete">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="3 6 5 6 21 6"/>
+                                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ARTICLES PAGE (Free for all users) -->
+                <div class="dashboard-page" id="page-articles">
+                    <div class="articles-grid">
+                        <div class="article-card">
+                            <div class="article-image" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">📊</div>
+                            <div class="article-content">
+                                <span class="article-tag">UMKM</span>
+                                <h4>Panduan Lengkap PPh Final UMKM 0,5%</h4>
+                                <p>Everything you need to know tentang PPh Final UMKM, fasilitas Rp 500 juta, dan cara menghitungnya.</p>
+                                <div class="article-meta"><span>5 menit baca</span><span>10 Jul 2026</span></div>
+                            </div>
+                        </div>
+
+                        <div class="article-card">
+                            <div class="article-image" style="background: linear-gradient(135deg, #10b981, #34d399);">⚖️</div>
+                            <div class="article-content">
+                                <span class="article-tag">Fiskal</span>
+                                <h4>Koreksi Fiskal: Apa yang Boleh dan Tidak Boleh</h4>
+                                <p>Memahami perbedaan biaya komersial dan fiskal agar tidak kena sanksi saat pemeriksaan.</p>
+                                <div class="article-meta"><span>8 menit baca</span><span>8 Jul 2026</span></div>
+                            </div>
+                        </div>
+
+                        <div class="article-card">
+                            <div class="article-image" style="background: linear-gradient(135deg, #f59e0b, #fbbf24);">📅</div>
+                            <div class="article-content">
+                                <span class="article-tag">Kepatuhan</span>
+                                <h4>Kalender Pajak 2026: Jangan Sampai Terlewat</h4>
+                                <p>Daftar lengkap deadline SPT Masa dan Tahunan untuk tahun 2026. Simpan artikel ini!</p>
+                                <div class="article-meta"><span>4 menit baca</span><span>5 Jul 2026</span></div>
+                            </div>
+                        </div>
+
+                        <div class="article-card">
+                            <div class="article-image" style="background: linear-gradient(135deg, #ec4899, #f472b6);">💼</div>
+                            <div class="article-content">
+                                <span class="article-tag">Profesi Bebas</span>
+                                <h4>NPPN untuk Dokter, Notaris, dan Konsultan</h4>
+                                <p>Cara menghitung pajak dengan Norma Perhitungan Penghasilan Neto yang menguntungkan.</p>
+                                <div class="article-meta"><span>6 menit baca</span><span>3 Jul 2026</span></div>
+                            </div>
+                        </div>
+
+                        <div class="article-card">
+                            <div class="article-image" style="background: linear-gradient(135deg, #06b6d4, #22d3ee);">🧾</div>
+                            <div class="article-content">
+                                <span class="article-tag">PPN</span>
+                                <h4>PPN 11%: Siapa yang Wajib dan Bagaimana Menghitungnya</h4>
+                                <p>Panduan lengkap tentang PPN untuk PKP dan non-PKP, termasuk cara kredit PPN Masukan.</p>
+                                <div class="article-meta"><span>7 menit baca</span><span>1 Jul 2026</span></div>
+                            </div>
+                        </div>
+
+                        <div class="article-card">
+                            <div class="article-image" style="background: linear-gradient(135deg, #8b5cf6, #a78bfa);">🔮</div>
+                            <div class="article-content">
+                                <span class="article-tag">Tax Planning</span>
+                                <h4>5 Strategi Tax Planning Legal untuk UMKM</h4>
+                                <p>Cara mengurangi beban pajak secara legal tanpa melanggar aturan. Bukan penggelapan pajak.</p>
+                                <div class="article-meta"><span>10 menit baca</span><span>28 Jun 2026</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HISTORY PAGE (Paywalled) -->
+                <div class="dashboard-page" id="page-history">
+                    <div class="paywall-page" id="historyPaywall" style="display: none;">
+                        <div class="paywall-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                        </div>
+                        <h2>Upgrade ke Tax Care</h2>
+                        <p>Akses riwayat konsultasi dan laporan lengkap hanya untuk pelanggan berlangganan.</p>
+                        <div class="paywall-benefits">
+                            <h4>Yang akan Anda dapatkan:</h4>
+                            <ul>
+                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Riwayat konsultasi tak terbatas</li>
+                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Laporan bulanan dari konsultan</li>
+                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Arsip 10 tahun</li>
+                            </ul>
+                        </div>
+                        <div class="paywall-actions">
+                            <button class="btn btn-primary btn-lg" data-page="subscription">Upgrade Sekarang</button>
+                            <button class="btn btn-secondary btn-lg" data-page="overview">Kembali</button>
+                        </div>
+                    </div>
+
+                    <div id="historyContent" style="display: none;">
+                        <div class="dashboard-card">
+                            <div class="dashboard-card-header">
+                                <h3>Riwayat Konsultasi</h3>
+                            </div>
+                            <div class="activity-list">
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="activity-content">
+                                        <strong>Review Pembukuan Q2 2026</strong>
+                                        <span>Dengan Anita Rahmawati, BKP</span>
+                                    </div>
+                                    <div class="activity-time">5 Jul 2026</div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="activity-content">
+                                        <strong>Tax Planning Semester 1</strong>
+                                        <span>Dengan Anita Rahmawati, BKP</span>
+                                    </div>
+                                    <div class="activity-time">15 Jun 2026</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROFILE PAGE -->
+                <div class="dashboard-page" id="page-profile">
+                    <div class="profile-header">
+                        <div class="profile-avatar" id="profileAvatar">U</div>
+                        <div class="profile-info">
+                            <h2 id="profileName">User Name</h2>
+                            <p id="profileEmail">user@email.com</p>
+                        </div>
+                        <div class="profile-actions">
+                            <button class="btn btn-secondary btn-sm">Edit Foto</button>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h3>Informasi Pribadi</h3>
+                        <div class="form-group" style="margin-bottom: 16px;">
+                            <label class="form-label" style="display: block; font-weight: 600; font-size: 14px; color: var(--text-primary); margin-bottom: 8px;">Nama Lengkap</label>
+                            <input type="text" class="form-input" id="profileNameInput" value="User Name" style="width: 100%; padding: 12px 14px; background: var(--bg-primary); border: 1px solid var(--border-default); border-radius: 10px; font-size: 15px; color: var(--text-primary);">
+                        </div>
+                        <div class="form-group" style="margin-bottom: 16px;">
+                            <label class="form-label" style="display: block; font-weight: 600; font-size: 14px; color: var(--text-primary); margin-bottom: 8px;">Email</label>
+                            <input type="email" class="form-input" id="profileEmailInput" value="user@email.com" style="width: 100%; padding: 12px 14px; background: var(--bg-primary); border: 1px solid var(--border-default); border-radius: 10px; font-size: 15px; color: var(--text-primary);">
+                        </div>
+                        <div class="form-group" style="margin-bottom: 16px;">
+                            <label class="form-label" style="display: block; font-weight: 600; font-size: 14px; color: var(--text-primary); margin-bottom: 8px;">NPWP</label>
+                            <input type="text" class="form-input" placeholder="00.000.000.0-000.000" style="width: 100%; padding: 12px 14px; background: var(--bg-primary); border: 1px solid var(--border-default); border-radius: 10px; font-size: 15px; color: var(--text-primary);">
+                        </div>
+                        <div class="form-group" style="margin-bottom: 16px;">
+                            <label class="form-label" style="display: block; font-weight: 600; font-size: 14px; color: var(--text-primary); margin-bottom: 8px;">Nomor Telepon</label>
+                            <input type="tel" class="form-input" placeholder="+62 812 3456 7890" style="width: 100%; padding: 12px 14px; background: var(--bg-primary); border: 1px solid var(--border-default); border-radius: 10px; font-size: 15px; color: var(--text-primary);">
+                        </div>
+                        <button class="btn btn-primary" id="saveProfileBtn">Simpan Perubahan</button>
+                    </div>
+                </div>
+
+                <!-- SUBSCRIPTION PAGE -->
+                <div class="dashboard-page" id="page-subscription">
+                    <div class="subscription-header">
+                        <h2>Kelola Langganan Anda</h2>
+                        <p>Upgrade, downgrade, atau batalkan langganan kapan saja.</p>
+                    </div>
+
+                    <div class="current-plan">
+                        <div class="current-plan-header">
+                            <div>
+                                <h3>Paket Saat Ini</h3>
+                                <p style="color: var(--text-tertiary); font-size: 14px; margin: 0;">Anda berlangganan paket ini</p>
+                            </div>
+                            <span class="plan-tag free" id="currentPlanTag">Free</span>
+                        </div>
+
+                        <div class="plan-features" id="currentPlanFeatures">
+                            <div class="plan-feature">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Kalkulator Pajak
+                            </div>
+                            <div class="plan-feature">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Simulasi What-If
+                            </div>
+                            <div class="plan-feature">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Artikel & Edukasi
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 style="margin-bottom: 16px;">Pilih Paket Lain</h3>
+
+                    <div class="subscription-pricing">
+                        <div class="pricing-card" style="background: var(--bg-elevated); border: 1px solid var(--border-default); border-radius: 16px; padding: 24px; display: flex; flex-direction: column;">
+                            <div style="font-size: 14px; font-weight: 600; color: var(--text-tertiary); margin-bottom: 8px; text-transform: uppercase;">Starter</div>
+                            <div style="font-size: 14px; color: var(--text-tertiary); margin-bottom: 24px; min-height: 40px;">Untuk UMKM perorangan yang baru mulai tertib pajak.</div>
+                            <div style="display: flex; align-items: baseline; gap: 4px; margin-bottom: 4px;">
+                                <span style="font-size: 20px; font-weight: 600;">Rp</span>
+                                <span style="font-size: 48px; font-weight: 800; line-height: 1;">299rb</span>
+                            </div>
+                            <div style="font-size: 14px; color: var(--text-tertiary); margin-bottom: 24px;">per bulan</div>
+                            <button class="btn btn-secondary btn-block" id="upgradeStarterBtn">Pilih Starter</button>
+                        </div>
+
+                        <div class="pricing-card featured" style="background: var(--bg-elevated); border: 2px solid var(--brand-600); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; position: relative; box-shadow: var(--shadow-xl);">
+                            <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--brand-600); color: white; padding: 4px 14px; border-radius: 999px; font-size: 12px; font-weight: 600;">Paling Populer</div>
+                            <div style="font-size: 14px; font-weight: 600; color: var(--text-tertiary); margin-bottom: 8px; text-transform: uppercase;">Professional</div>
+                            <div style="font-size: 14px; color: var(--text-tertiary); margin-bottom: 24px; min-height: 40px;">Untuk UMKM berkembang dan profesional.</div>
+                            <div style="display: flex; align-items: baseline; gap: 4px; margin-bottom: 4px;">
+                                <span style="font-size: 20px; font-weight: 600;">Rp</span>
+                                <span style="font-size: 48px; font-weight: 800; line-height: 1;">799rb</span>
+                            </div>
+                            <div style="font-size: 14px; color: var(--text-tertiary); margin-bottom: 24px;">per bulan</div>
+                            <button class="btn btn-primary btn-block" id="upgradeProBtn">Pilih Professional</button>
+                        </div>
+
+                        <div class="pricing-card" style="background: var(--bg-elevated); border: 1px solid var(--border-default); border-radius: 16px; padding: 24px; display: flex; flex-direction: column;">
+                            <div style="font-size: 14px; font-weight: 600; color: var(--text-tertiary); margin-bottom: 8px; text-transform: uppercase;">Enterprise</div>
+                            <div style="font-size: 14px; color: var(--text-tertiary); margin-bottom: 24px; min-height: 40px;">Untuk PT, CV, dan multi-entity.</div>
+                            <div style="display: flex; align-items: baseline; gap: 4px; margin-bottom: 4px;">
+                                <span style="font-size: 20px; font-weight: 600;">Rp</span>
+                                <span style="font-size: 48px; font-weight: 800; line-height: 1;">2,5jt</span>
+                            </div>
+                            <div style="font-size: 14px; color: var(--text-tertiary); margin-bottom: 24px;">per bulan, mulai dari</div>
+                            <button class="btn btn-secondary btn-block" id="upgradeEntBtn">Hubungi Sales</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SETTINGS PAGE -->
+                <div class="dashboard-page" id="page-settings">
+                    <div class="settings-section">
+                        <h3>Preferensi Notifikasi</h3>
+                        <div class="settings-row">
+                            <div class="settings-row-label">
+                                <strong>Reminder Deadline Pajak</strong>
+                                <span>Notifikasi H-7 sebelum jatuh tempo</span>
+                            </div>
+                            <button class="toggle-switch active" data-toggle="reminder"></button>
+                        </div>
+                        <div class="settings-row">
+                            <div class="settings-row-label">
+                                <strong>Update dari Konsultan</strong>
+                                <span>Notifikasi saat konsultan membalas</span>
+                            </div>
+                            <button class="toggle-switch active" data-toggle="consultant"></button>
+                        </div>
+                        <div class="settings-row">
+                            <div class="settings-row-label">
+                                <strong>Artikel & Edukasi</strong>
+                                <span>Newsletter mingguan tentang pajak</span>
+                            </div>
+                            <button class="toggle-switch" data-toggle="newsletter"></button>
+                        </div>
+                        <div class="settings-row">
+                            <div class="settings-row-label">
+                                <strong>Promosi & Penawaran</strong>
+                                <span>Info diskon dan fitur baru</span>
+                            </div>
+                            <button class="toggle-switch" data-toggle="promo"></button>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h3>Keamanan</h3>
+                        <div class="settings-row">
+                            <div class="settings-row-label">
+                                <strong>Autentikasi Dua Faktor</strong>
+                                <span>Tambahkan lapisan keamanan ekstra</span>
+                            </div>
+                            <button class="btn btn-secondary btn-sm">Aktifkan</button>
+                        </div>
+                        <div class="settings-row">
+                            <div class="settings-row-label">
+                                <strong>Ubah Password</strong>
+                                <span>Terakhir diubah 30 hari lalu</span>
+                            </div>
+                            <button class="btn btn-secondary btn-sm">Ubah</button>
+                        </div>
+                    </div>
+
+                    <div class="settings-section" style="border-color: var(--danger-500);">
+                        <h3 style="color: var(--danger-500);">Zona Berbahaya</h3>
+                        <div class="settings-row">
+                            <div class="settings-row-label">
+                                <strong>Hapus Akun</strong>
+                                <span>Tindakan ini tidak dapat dibatalkan</span>
+                            </div>
+                            <button class="btn btn-danger btn-sm" id="deleteAccountBtn">Hapus Akun</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/session.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

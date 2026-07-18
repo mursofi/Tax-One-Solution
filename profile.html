@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Saya - PajakOne</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+    <div class="dashboard-app">
+        <!-- Sidebar (same as dashboard) -->
+        <aside class="sidebar" id="sidebar">
+            <!-- ... sidebar content ... -->
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="top-bar-left">
+                    <button class="sidebar-toggle" id="sidebarToggle">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="3" y1="6" x2="21" y2="6"/>
+                            <line x1="3" y1="12" x2="21" y2="12"/>
+                            <line x1="3" y1="18" x2="21" y2="18"/>
+                        </svg>
+                    </button>
+                    <div class="top-bar-title">
+                        <h1>Profil Saya</h1>
+                        <p>Kelola informasi pribadi dan akun Anda</p>
+                    </div>
+                </div>
+                <!-- User menu same as dashboard -->
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <div class="profile-container">
+                    <!-- Profile Header -->
+                    <div class="profile-header-card">
+                        <div class="profile-avatar-section">
+                            <div class="profile-avatar-large" id="profileAvatar">
+                                <span id="avatarInitial">U</span>
+                            </div>
+                            <button class="btn btn-sm btn-secondary" onclick="document.getElementById('avatarInput').click()">
+                                Ubah Foto
+                            </button>
+                            <input type="file" id="avatarInput" accept="image/*" style="display: none;">
+                        </div>
+                        <div class="profile-info-section">
+                            <h2 id="displayName">User Name</h2>
+                            <p id="displayEmail">user@email.com</p>
+                            <span class="badge badge-premium" id="userBadge">Free</span>
+                        </div>
+                    </div>
+
+                    <!-- Profile Form -->
+                    <div class="profile-form-card">
+                        <h3>Informasi Pribadi</h3>
+                        <form id="profileForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="fullName">Nama Lengkap <span class="required">*</span></label>
+                                    <input type="text" id="fullName" class="form-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="displayName2">Nama Panggilan</label>
+                                    <input type="text" id="displayName2" class="form-input">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email <span class="required">*</span></label>
+                                    <input type="email" id="email" class="form-input" required>
+                                    <small class="form-hint">Email digunakan untuk login dan notifikasi</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Nomor Telepon</label>
+                                    <input type="tel" id="phone" class="form-input" placeholder="+62 812 3456 7890">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="npwp">NPWP</label>
+                                    <input type="text" id="npwp" class="form-input" placeholder="00.000.000.0-000.000">
+                                    <small class="form-hint">Format: 00.000.000.0-000.000</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nik">NIK (KTP)</label>
+                                    <input type="text" id="nik" class="form-input" placeholder="16 digit NIK">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="businessType">Jenis Usaha</label>
+                                <select id="businessType" class="form-select">
+                                    <option value="">Pilih jenis usaha...</option>
+                                    <option value="umkm">UMKM</option>
+                                    <option value="freelancer">Freelancer</option>
+                                    <option value="doctor">Dokter</option>
+                                    <option value="notary">Notaris</option>
+                                    <option value="consultant">Konsultan</option>
+                                    <option value="company">Perusahaan (PT/CV)</option>
+                                    <option value="other">Lainnya</option>
+                                </select>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                                <button type="button" class="btn btn-secondary" onclick="loadProfile()">Batal</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Security Section -->
+                    <div class="profile-form-card">
+                        <h3>Keamanan</h3>
+                        <form id="passwordForm">
+                            <div class="form-group">
+                                <label for="currentPassword">Password Saat Ini</label>
+                                <input type="password" id="currentPassword" class="form-input">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="newPassword">Password Baru</label>
+                                    <input type="password" id="newPassword" class="form-input">
+                                    <small class="form-hint">Minimal 8 karakter, kombinasi huruf dan angka</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirmPassword">Konfirmasi Password Baru</label>
+                                    <input type="password" id="confirmPassword" class="form-input">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-secondary">Ubah Password</button>
+                        </form>
+                    </div>
+
+                    <!-- Danger Zone -->
+                    <div class="profile-form-card danger-zone">
+                        <h3>⚠️ Zona Berbahaya</h3>
+                        <p>Tindakan ini tidak dapat dibatalkan.</p>
+                        <button class="btn btn-danger" onclick="confirmDeleteAccount()">Hapus Akun Permanen</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/session.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>

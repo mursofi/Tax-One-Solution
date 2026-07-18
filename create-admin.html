@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Admin - PajakOne</title>
+</head>
+<body>
+    <h1>Creating Admin User...</h1>
+    <script>
+        // Paste kode JavaScript di sini
+        const adminUser = {
+            id: 'admin-001',
+            name: 'Administrator',
+            email: 'admin@pajakone.id',
+            password: 'admin123',
+            role: 'admin',
+            business: 'company',
+            status: 'active',
+            createdAt: new Date().toISOString()
+        };
+
+        const users = JSON.parse(localStorage.getItem('pajakone_users') || '[]');
+        users.push(adminUser);
+        localStorage.setItem('pajakone_users', JSON.stringify(users));
+
+        alert('✅ Admin user created!\nEmail: admin@pajakone.id\nPassword: admin123');
+        window.location.href = 'admin.html';
+    </script>
+</body>
+</html>

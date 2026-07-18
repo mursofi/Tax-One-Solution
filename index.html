@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PajakOne — Perusahaan jasa konsultasi pajak digital untuk UMKM, freelancer, dokter, notaris, dan profesional Indonesia. Konsultan bersertifikat, pendampingan penuh.">
+    <meta name="keywords" content="konsultan pajak, konsultasi pajak digital, pajak UMKM, SPT, PPh, PPN, tax planning, koreksi fiskal">
+    <meta name="author" content="PajakOne">
+    <title>PajakOne — Konsultan Pajak Digital untuk Profesional Indonesia</title>
+    
+    <!-- Preconnect untuk performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- ✅ BENAR: Relative path (tanpa slash di depan) agar terbaca di GitHub Pages -->
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/landing.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-wrapper">
+            <a href="#home" class="logo">
+                <div class="logo-mark">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                    </svg>
+                </div>
+                Pajak<span class="text-gradient">One</span>
+            </a>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#pain">Masalah</a></li>
+                <li><a href="#why">Mengapa Kami</a></li>
+                <li><a href="#how">Cara Kerja</a></li>
+                <li><a href="#pricing">Harga</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/>
+                        <line x1="12" y1="21" x2="12" y2="23"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                        <line x1="1" y1="12" x2="3" y2="12"/>
+                        <line x1="21" y1="12" x2="23" y2="12"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                </button>
+
+                <div class="nav-cta">
+                    <a href="#calculator" class="btn btn-ghost">Hitung Pajak</a>
+                    <a href="#pricing" class="btn btn-primary">Mulai Konsultasi</a>
+                </div>
+
+                <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <line x1="3" y1="12" x2="21" y2="12"/>
+                        <line x1="3" y1="18" x2="21" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#pain">Masalah</a>
+        <a href="#why">Mengapa Kami</a>
+        <a href="#how">Cara Kerja</a>
+        <a href="#pricing">Harga</a>
+        <a href="#faq">FAQ</a>
+        <a href="#calculator" class="btn btn-secondary" style="margin-top: 8px; text-align: center;">Hitung Pajak</a>
+        <a href="#pricing" class="btn btn-primary" style="margin-top: 8px; text-align: center;">Mulai Konsultasi</a>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- HERO -->
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <div class="hero-badge">
+                            <div class="hero-badge-dot"></div>
+                            Dipercaya 2.400+ profesional di Indonesia
+                        </div>
+                        <h1>Konsultan Pajak Digital yang <span class="text-gradient">Benar-Benar Mendampingi</span> Usaha Anda</h1>
+                        <p class="subtitle">Bukan software. Bukan chatbot. PajakOne adalah tim konsultan pajak bersertifikat yang menemani Anda setiap bulan — dari pembukuan, koreksi fiskal, hingga pelaporan SPT.</p>
+                        <div class="hero-cta">
+                            <a href="#pricing" class="btn btn-primary btn-lg">Mulai Konsultasi</a>
+                            <a href="#calculator" class="btn btn-secondary btn-lg">Hitung Pajak Gratis</a>
+                        </div>
+                        <div class="hero-trust">
+                            <div class="hero-trust-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                Konsultan Bersertifikat
+                            </div>
+                            <div class="hero-trust-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                Data Terenkripsi
+                            </div>
+                            <div class="hero-trust-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                Garansi Kepatuhan
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="floating-stat top">
+                            <div class="floating-stat-icon success">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            </div>
+                            <div><strong>SPT Lapor Tepat Waktu</strong><span>100% klien kami</span></div>
+                        </div>
+                        <div class="consultation-mock">
+                            <div class="mock-header">
+                                <div class="mock-avatar">AR</div>
+                                <div class="mock-info">
+                                    <strong>Anita Rahmawati, BKP</strong>
+                                    <span>Konsultan Pajak Aktif</span>
+                                </div>
+                            </div>
+                            <div class="mock-messages">
+                                <div class="mock-msg consultant">Selamat siang, Pak Budi. Saya sudah review pembukuan Q3. Ada 3 biaya yang perlu dikoreksi fiskal agar tidak jadi masalah saat pemeriksaan.</div>
+                                <div class="mock-msg client">Wah, biaya yang mana saja bu?</div>
+                                <div class="mock-msg consultant">Biaya entertainment tanpa daftar nominatif, sumbangan non-wajib, dan biaya pribadi keluarga. Total koreksi positif Rp 47 juta.</div>
+                            </div>
+                            <div class="mock-input">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                                Ketik pesan ke konsultan Anda...
+                            </div>
+                        </div>
+                        <div class="floating-stat bottom">
+                            <div class="floating-stat-icon brand">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            </div>
+                            <div><strong>Aman & Privat</strong><span>Enkripsi end-to-end</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAIN POINTS -->
+        <section class="pain-section" id="pain">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="eyebrow">Masalah yang Kami Pahami</span>
+                    <h2>Urusan Pajak Seharusnya Tidak Membuat Anda <span class="text-gradient">Tidak Bisa Tidur</span></h2>
+                    <p>Jika Anda pernah merasakan salah satu dari ini, Anda tidak sendirian. Dan semuanya bisa diselesaikan.</p>
+                </div>
+                <div class="pain-grid">
+                    <div class="pain-card reveal">
+                        <div class="pain-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                        </div>
+                        <h3>Takut Salah Lapor SPT</h3>
+                        <p>Satu angka yang keliru bisa memicu pemeriksaan. Anda tidak yakin apakah angka yang Anda laporkan sudah benar.</p>
+                    </div>
+                    <div class="pain-card reveal">
+                        <div class="pain-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                        </div>
+                        <h3>Takut Kena Sanksi & Denda</h3>
+                        <p>Terlambat lapor, salah hitung, atau lupa koreksi fiskal — dendanya bisa lebih besar dari pajak yang seharusnya dibayar.</p>
+                    </div>
+                    <div class="pain-card reveal">
+                        <div class="pain-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                        </div>
+                        <h3>Tidak Tahu Biaya yang Boleh Dikurangkan</h3>
+                        <p>Banyak pengeluaran bisnis yang ternyata tidak diakui fiskal. Akibatnya, Anda bayar pajak lebih besar dari seharusnya.</p>
+                    </div>
+                    <div class="pain-card reveal">
+                        <div class="pain-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <h3>Tidak Punya Konsultan yang Dipercaya</h3>
+                        <p>Konsultan mahal, sulit dihubungi, atau hanya muncul setahun sekali saat SPT tahunan. Anda butuh pendampingan rutin.</p>
+                    </div>
+                    <div class="pain-card reveal">
+                        <div class="pain-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                        </div>
+                        <h3>Aturan Pajak Terus Berubah</h3>
+                        <p>UU HPP, PMK baru, tarif PPN naik — mengikuti perubahan aturan memakan waktu yang seharusnya untuk bisnis Anda.</p>
+                    </div>
+                    <div class="pain-card reveal">
+                        <div class="pain-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        </div>
+                        <h3>Waktu Habis untuk Urusan Pajak</h3>
+                        <p>Anda adalah dokter, notaris, atau pengusaha. Waktu Anda seharusnya untuk klien, bukan untuk membaca PMK.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY -->
+        <section class="why-section" id="why" style="background: var(--bg-secondary);">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="eyebrow">Mengapa PajakOne</span>
+                    <h2>Kami Bukan Software. Kami <span class="text-gradient">Tim Konsultan</span> yang Benar-Benar Hadir untuk Anda.</h2>
+                    <p>PajakOne adalah perusahaan jasa konsultasi pajak digital. Software hanyalah alat yang kami gunakan untuk melayani Anda lebih cepat dan lebih akurat.</p>
+                </div>
+                <div class="why-grid">
+                    <div class="why-content reveal">
+                        <div class="why-list">
+                            <div class="why-item">
+                                <div class="why-item-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                </div>
+                                <div class="why-item-content">
+                                    <h4>Konsultan Bersertifikat BKP</h4>
+                                    <p>Setiap klien didampingi konsultan pajak bersertifikat resmi dari DJP, bukan chatbot atau AI.</p>
+                                </div>
+                            </div>
+                            <div class="why-item">
+                                <div class="why-item-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                                </div>
+                                <div class="why-item-content">
+                                    <h4>Data Terenkripsi & Privat</h4>
+                                    <p>Enkripsi AES-256, server ISO 27001, patuh UU PDP. Data Anda tidak akan pernah dijual ke pihak ketiga.</p>
+                                </div>
+                            </div>
+                            <div class="why-item">
+                                <div class="why-item-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                </div>
+                                <div class="why-item-content">
+                                    <h4>Garansi Kepatuhan</h4>
+                                    <p>Jika terjadi kesalahan dari sisi kami yang menyebabkan sanksi, kami tanggung biayanya. Tertulis di kontrak.</p>
+                                </div>
+                            </div>
+                            <div class="why-item">
+                                <div class="why-item-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                </div>
+                                <div class="why-item-content">
+                                    <h4>Pendampingan Setiap Bulan</h4>
+                                    <p>Bukan setahun sekali. Konsultan Anda review pembukuan, koreksi fiskal, dan pajak terutang setiap bulan.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="why-visual reveal">
+                        <div class="trust-card">
+                            <div class="trust-card-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            </div>
+                            <div class="trust-card-content">
+                                <strong>ISO 27001 Certified</strong>
+                                <span>Standar keamanan informasi internasional</span>
+                            </div>
+                        </div>
+                        <div class="trust-card">
+                            <div class="trust-card-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            </div>
+                            <div class="trust-card-content">
+                                <strong>Enkripsi AES-256</strong>
+                                <span>Data Anda aman bahkan jika server dibobol</span>
+                            </div>
+                        </div>
+                        <div class="trust-card">
+                            <div class="trust-card-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                            </div>
+                            <div class="trust-card-content">
+                                <strong>Patuh UU PDP</strong>
+                                <span>Mematuhi UU Pelindungan Data Pribadi Indonesia</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HOW IT WORKS -->
+        <section class="how-section" id="how">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="eyebrow">Cara Kerja</span>
+                    <h2>Mulai dalam 4 Langkah. <span class="text-gradient">Tanpa Ribet.</span></h2>
+                    <p>Tidak perlu latar belakang akuntansi. Kami memandu Anda dari awal hingga SPT Anda lapor dengan benar.</p>
+                </div>
+                <div class="steps-grid">
+                    <div class="step-card reveal">
+                        <div class="step-number">1</div>
+                        <h3>Daftar & Ceritakan Usaha Anda</h3>
+                        <p>Pilih paket, isi profil singkat, dan kami pasangankan Anda dengan konsultan yang sesuai bidang usaha Anda.</p>
+                    </div>
+                    <div class="step-card reveal">
+                        <div class="step-number">2</div>
+                        <h3>Upload Data Keuangan</h3>
+                        <p>Upload mutasi rekening, invoice, atau foto struk. Bisa juga integrasi otomatis dengan software akuntansi Anda.</p>
+                    </div>
+                    <div class="step-card reveal">
+                        <div class="step-number">3</div>
+                        <h3>Konsultan Review Setiap Bulan</h3>
+                        <p>Konsultan Anda mengkategorisasi beban, melakukan koreksi fiskal, dan menghitung pajak terutang secara akurat.</p>
+                    </div>
+                    <div class="step-card reveal">
+                        <div class="step-number">4</div>
+                        <h3>SPT Lapor, Anda Tenang</h3>
+                        <p>Kami siapkan draf SPT, Anda review, lalu kami bantu lapor. Selesai. Anda tinggal fokus ke bisnis.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section class="features-section" id="features" style="background: var(--bg-secondary);">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="eyebrow">Fitur Platform</span>
+                    <h2>Alat Bantu Gratis. <span class="text-gradient">Konsultasi Berlangganan.</span></h2>
+                    <p>Gunakan kalkulator dan simulasi kami secara gratis. Untuk pendampingan nyata dari konsultan, pilih paket Tax Care.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="features-column reveal">
+                        <h3>Fitur Gratis <span class="badge-free">Selamanya</span></h3>
+                        <p>Alat bantu untuk memahami pajak Anda sendiri.</p>
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <div class="feature-item-icon free">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                                </div>
+                                <div class="feature-item-content">
+                                    <h4>Hitung Pajak</h4>
+                                    <p>Kalkulator PPh UMKM, OP progresif, PPh Badan, dan PPN.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-item-icon free">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                                </div>
+                                <div class="feature-item-content">
+                                    <h4>Simulasi What-If</h4>
+                                    <p>Uji dampak pajak dari keputusan bisnis sebelum diambil.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-item-icon free">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                                </div>
+                                <div class="feature-item-content">
+                                    <h4>Artikel & Edukasi</h4>
+                                    <p>Panduan pajak dalam bahasa manusia, bukan bahasa PMK.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="features-column reveal">
+                        <h3>Fitur Premium <span class="badge-premium">Tax Care</span></h3>
+                        <p>Pendampingan nyata dari konsultan pajak bersertifikat.</p>
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <div class="feature-item-icon premium">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                                </div>
+                                <div class="feature-item-content">
+                                    <h4>Live Chat Konsultan 🔒</h4>
+                                    <p>Tanya konsultan langsung, respon dalam 2 jam kerja.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-item-icon premium">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                </div>
+                                <div class="feature-item-content">
+                                    <h4>Review SPT 🔒</h4>
+                                    <p>Konsultan review SPT Anda sebelum dilaporkan ke DJP.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-item-icon premium">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                                </div>
+                                <div class="feature-item-content">
+                                    <h4>Koreksi Fiskal 🔒</h4>
+                                    <p>Koreksi fiskal positif & negatif dilakukan oleh konsultan.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-item-icon premium">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+                                </div>
+                                <div class="feature-item-content">
+                                    <h4>Tax Planning 🔒</h4>
+                                    <p>Strategi penghematan pajak legal untuk tahun depan.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CALCULATOR -->
+        <section class="calculator-section" id="calculator" style="background: var(--bg-secondary);">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="eyebrow">Alat Bantu Gratis</span>
+                    <h2>Hitung Pajak Anda dalam <span class="text-gradient">2 Menit</span></h2>
+                    <p>Kalkulator ini gratis selamanya. Untuk pendampingan nyata dari konsultan, lihat paket Tax Care di bawah.</p>
+                </div>
+                <div class="calc-layout">
+                    <div class="card reveal">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="14.01"/><line x1="12" y1="14" x2="12" y2="14.01"/><line x1="8" y1="14" x2="8" y2="14.01"/></svg>
+                            </div>
+                            <div>
+                                <h2>Data Usaha Anda</h2>
+                                <p>Isi data di bawah untuk menghitung pajak</p>
+                            </div>
+                        </div>
+                        <form id="taxForm">
+                            <div class="form-group">
+                                <label class="form-label">Jenis Wajib Pajak</label>
+                                <div class="radio-group">
+                                    <div class="radio-option">
+                                        <input type="radio" name="wpType" id="wpUmkmOp" value="umkm_op" checked>
+                                        <label for="wpUmkmOp">UMKM OP</label>
+                                    </div>
+                                    <div class="radio-option">
+                                        <input type="radio" name="wpType" id="wpUmkmBadan" value="umkm_badan">
+                                        <label for="wpUmkmBadan">UMKM Badan</label>
+                                    </div>
+                                    <div class="radio-option">
+                                        <input type="radio" name="wpType" id="wpOpNonUmkm" value="op_non_umkm">
+                                        <label for="wpOpNonUmkm">OP Non-UMKM</label>
+                                    </div>
+                                    <div class="radio-option">
+                                        <input type="radio" name="wpType" id="wpBadan" value="badan">
+                                        <label for="wpBadan">Badan Usaha</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="omzet">Omzet / Peredaran Bruto <span class="form-hint">(1 tahun)</span></label>
+                                <div class="input-prefix">
+                                    <input type="text" id="omzet" class="form-input" placeholder="0" inputmode="numeric" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="isPKP">
+                                    <label for="isPKP">Saya Pengusaha Kena Pajak (PKP) — hitung PPN</label>
+                                </div>
+                            </div>
+                            <div class="info-box">
+                                <strong>Info:</strong> Tarif PPN 2026 = 11%. PPN Keluaran = 11% × Omzet.
+                            </div>
+                            <button type="submit" class="btn-calc">Hitung Pajak Sekarang</button>
+                            <button type="button" class="btn-reset" id="resetBtn">Reset Form</button>
+                        </form>
+                    </div>
+                    <div class="card result-card reveal">
+                        <div class="card-header">
+                            <div class="card-icon" style="background: var(--success-500);">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                            </div>
+                            <div>
+                                <h2>Hasil Perhitungan</h2>
+                                <p>Breakdown pajak terutang Anda</p>
+                            </div>
+                        </div>
+                        <div id="resultContent">
+                            <div class="empty-state">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                                <p>Isi form di sebelah kiri, lalu klik <strong>"Hitung Pajak"</strong> untuk melihat hasil perhitungan.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRICING -->
+        <section class="pricing-section" id="pricing">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="eyebrow">Paket Tax Care</span>
+                    <h2>Pilih Paket yang <span class="text-gradient">Sesuai Skala Usaha</span> Anda</h2>
+                    <p>Harga transparan. Tanpa biaya tersembunyi. Batalkan kapan saja. Garansi kepatuhan tertulis di kontrak.</p>
+                </div>
+                <div class="pricing-grid">
+                    <div class="pricing-card reveal">
+                        <div class="pricing-name">Starter</div>
+                        <div class="pricing-desc">Untuk UMKM perorangan yang baru mulai tertib pajak.</div>
+                        <div class="pricing-amount">
+                            <span class="pricing-currency">Rp</span>
+                            <span class="pricing-value">299rb</span>
+                        </div>
+                        <div class="pricing-period">per bulan, dibayar tahunan</div>
+                        <ul class="pricing-features">
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>1 konsultan pajak dedicated</li>
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Review pembukuan bulanan</li>
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Koreksi fiskal otomatis</li>
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Persiapan SPT Tahunan</li>
+                        </ul>
+                        <button class="btn btn-secondary btn-block">Mulai dengan Starter</button>
+                    </div>
+                    <div class="pricing-card featured reveal">
+                        <div class="pricing-popular">Paling Populer</div>
+                        <div class="pricing-name">Professional</div>
+                        <div class="pricing-desc">Untuk UMKM berkembang, freelancer, dan profesional.</div>
+                        <div class="pricing-amount">
+                            <span class="pricing-currency">Rp</span>
+                            <span class="pricing-value">799rb</span>
+                        </div>
+                        <div class="pricing-period">per bulan, dibayar tahunan</div>
+                        <ul class="pricing-features">
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Semua fitur Starter</li>
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Live chat prioritas (respon 2 jam)</li>
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Review SPT sebelum lapor</li>
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Tax planning tahunan</li>
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Garansi kepatuhan tertulis</li>
+                        </ul>
+                        <button class="btn btn-primary btn-block">Mulai dengan Professional</button>
+                    </div>
+                    <div class="pricing-card reveal">
+                        <div class="pricing-name">Enterprise</div>
+                        <div class="pricing-desc">Untuk PT, CV, dan perusahaan dengan multi-entity.</div>
+                        <div class="pricing-amount">
+                            <span class="pricing-currency">Rp</span>
+                            <span class="pricing-value">2,5jt</span>
+                        </div>
+                        <div class="pricing-period">per bulan, mulai dari</div>
+                        <ul class="pricing-features">
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Semua fitur Professional</li>
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Multi-entity (hingga 10 PT/CV)</li>
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Dedicated account manager</li>
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Priority support 24/7</li>
+                        </ul>
+                        <button class="btn btn-secondary btn-block">Hubungi Sales</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq-section" id="faq">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="eyebrow">FAQ</span>
+                    <h2>Pertanyaan yang Sering Diajukan</h2>
+                    <p>Belum menemukan jawaban? Hubungi tim support kami via chat 24/7.</p>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item reveal">
+                        <button class="faq-question">
+                            Apa bedanya PajakOne dengan software pajak biasa?
+                            <span class="faq-toggle">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                Software pajak hanya memberi Anda alat untuk menghitung sendiri. PajakOne adalah <strong>perusahaan jasa konsultasi</strong> yang menyediakan konsultan pajak bersertifikat untuk mendampingi Anda setiap bulan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item reveal">
+                        <button class="faq-question">
+                            Apakah hasil perhitungan bisa langsung dipakai lapor SPT?
+                            <span class="faq-toggle">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                Untuk kalkulator gratis, hasilnya adalah <strong>estimasi</strong> dan panduan. Untuk pelanggan Tax Care, konsultan kami yang menyiapkan draf SPT dan mereviewnya sebelum Anda lapor.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item reveal">
+                        <button class="faq-question">
+                            Apakah data keuangan saya aman?
+                            <span class="faq-toggle">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                Kami menggunakan enkripsi AES-256 untuk data sensitif, server berstandar ISO 27001, dan mematuhi UU Pelindungan Data Pribadi (UU PDP). Data Anda <strong>tidak akan dijual</strong> atau dibagikan ke pihak ketiga.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item reveal">
+                        <button class="faq-question">
+                            Bagaimana cara membatalkan langganan?
+                            <span class="faq-toggle">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                Anda bisa membatalkan kapan saja dari dashboard — tanpa biaya penalti, tanpa pertanyaan. Data Anda tetap bisa diakses (mode read-only) selama 90 hari setelah pembatalan untuk keperluan arsip.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL CTA -->
+        <section class="final-cta" style="background: var(--bg-primary);">
+            <div class="container">
+                <div class="section-header" style="max-width: 680px;">
+                    <span class="eyebrow">Siap Memulai?</span>
+                    <h2>Jangan Biarkan Urusan Pajak Mengganggu Fokus Anda pada Bisnis</h2>
+                    <p>Bergabung dengan 2.400+ profesional yang sudah mempercayakan urusan pajak mereka pada PajakOne. Konsultan Anda siap mendampingi mulai besok.</p>
+                    <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 32px;">
+                        <a href="#pricing" class="btn btn-primary btn-lg">Mulai Konsultasi</a>
+                        <a href="#calculator" class="btn btn-secondary btn-lg">Hitung Pajak Gratis Dulu</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#home" class="logo">
+                        <div class="logo-mark">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                        </div>
+                        Pajak<span class="text-gradient">One</span>
+                    </a>
+                    <p>Perusahaan jasa konsultasi pajak digital untuk UMKM, freelancer, dokter, notaris, dan profesional Indonesia.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        </a>
+                        <a href="#" aria-label="LinkedIn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Produk</h4>
+                    <ul>
+                        <li><a href="#features">Fitur</a></li>
+                        <li><a href="#pricing">Harga</a></li>
+                        <li><a href="#calculator">Kalkulator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Perusahaan</h4>
+                    <ul>
+                        <li><a href="#">Tentang Kami</a></li>
+                        <li><a href="#">Karir</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Dukungan</h4>
+                    <ul>
+                        <li><a href="#">Pusat Bantuan</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#">Dokumentasi API</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>© 2026 PajakOne. Semua hak dilindungi.</div>
+                <div>
+                    <a href="#">Kebijakan Privasi</a>
+                    <a href="#">Syarat & Ketentuan</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ✅ BENAR: Relative path untuk JavaScript (tanpa slash di depan) -->
+    <script src="js/session.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
