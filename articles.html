@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artikel & Edukasi - PajakOne</title>
+    
+    <!-- CSS Dependencies -->
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    
+    <!-- Articles Specific Styles (Inline) -->
+    <style>
+        .articles-container { max-width: 1200px; }
+        
+        /* Search & Filter Bar */
+        .filter-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+        
+        .search-box {
+            position: relative;
+            flex: 1;
+            min-width: 250px;
+            max-width: 400px;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 12px 16px 12px 44px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            color: var(--text-primary);
+        }
+        
+        .search-box input:focus { outline: none; border-color: var(--brand-600); }
+        
+        .search-box svg {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            color: var(--text-muted);
+        }
+        
+        .category-pills {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+        }
+        
+        .pill {
+            padding: 8px 16px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-default);
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.15s;
+        }
+        
+        .pill:hover { background: var(--bg-tertiary); }
+        .pill.active { background: var(--brand-600); color: white; border-color: var(--brand-600); }
+        
+        /* Articles Grid */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+        }
+        
+        .article-card {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all 0.2s;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .article-card:hover {
+            border-color: var(--border-strong);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .article-image {
+            height: 160px;
+            background: linear-gradient(135deg, var(--brand-500), var(--brand-700));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+            position: relative;
+        }
+        
+        .article-image.umkm { background: linear-gradient(135deg, #10b981, #059669); }
+        .article-image.fiskal { background: linear-gradient(135deg, #f59e0b, #d97706); }
+        .article-image.kepatuhan { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+        .article-image.profesi { background: linear-gradient(135deg, #ec4899, #be185d); }
+        .article-image.ppn { background: linear-gradient(135deg, #06b6d4, #0e7490); }
+        .article-image.planning { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
+        
+        .article-category {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(255,255,255,0.9);
+            color: var(--text-primary);
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .article-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .article-content h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1.4;
+            color: var(--text-primary);
+        }
+        
+        .article-content p {
+            font-size: 13px;
+            color: var(--text-tertiary);
+            line-height: 1.6;
+            margin-bottom: 16px;
+            flex: 1;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: var(--text-muted);
+            padding-top: 12px;
+            border-top: 1px solid var(--border-subtle);
+        }
+        
+        .article-meta span { display: flex; align-items: center; gap: 4px; }
+        
+        @media (max-width: 768px) {
+            .filter-bar { flex-direction: column; align-items: stretch; }
+            .search-box { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-app">
+        
+        <!-- ==========================================
+             SIDEBAR NAVIGATION
+             ========================================== -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="logo">
+                    <div class="logo-mark">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                        </svg>
+                    </div>
+                    Pajak<span class="text-gradient">One</span>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="sidebar-section-label">Menu Utama</div>
+                <ul class="sidebar-menu">
+                    <li><a href="dashboard.html" id="nav-dashboard">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                        Dashboard
+                    </a></li>
+                    <li><a href="consultation.html" id="nav-consultation">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        Konsultasi
+                    </a></li>
+                    <li><a href="dashboard.html#spt" id="nav-spt">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                        SPT Tahunan
+                    </a></li>
+                    <li><a href="dashboard.html#documents" id="nav-documents">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                        Dokumen
+                    </a></li>
+                    <li><a href="articles.html" id="nav-articles" class="active">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                        Artikel
+                    </a></li>
+                </ul>
+
+                <div class="sidebar-section-label">Akun</div>
+                <ul class="sidebar-menu">
+                    <li><a href="profile.html" id="nav-profile">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        Profil
+                    </a></li>
+                    <li><a href="subscription.html" id="nav-subscription">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        Langganan
+                    </a></li>
+                    <li><a href="dashboard.html#settings" id="nav-settings">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                        Pengaturan
+                    </a></li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <ul class="sidebar-menu">
+                    <li><button id="sidebarLogout">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                        Logout
+                    </button></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- ==========================================
+             MAIN CONTENT
+             ========================================== -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <header class="top-bar">
+                <div class="top-bar-left">
+                    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                    </button>
+                    <div class="top-bar-title">
+                        <h1 id="topBarTitle">Artikel & Edukasi</h1>
+                        <p id="topBarSubtitle">Pelajari aturan pajak dengan bahasa yang mudah dipahami</p>
+                    </div>
+                </div>
+
+                <div class="top-bar-right">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                        <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                        <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                    </button>
+
+                    <div style="position: relative;">
+                        <button class="user-menu-btn" id="userMenuBtn">
+                            <div class="user-menu-avatar" id="userAvatarDisplay">U</div>
+                            <div class="user-menu-info">
+                                <strong id="userNameDisplay">User</strong>
+                                <span id="userRoleDisplay">free</span>
+                            </div>
+                        </button>
+
+                        <div class="user-dropdown" id="userDropdown">
+                            <div class="user-dropdown-header">
+                                <strong id="dropdownName">User</strong>
+                                <span id="dropdownEmail">user@email.com</span>
+                            </div>
+                            <a href="profile.html">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                Profil Saya
+                            </a>
+                            <a href="subscription.html">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                Langganan
+                            </a>
+                            <div class="divider"></div>
+                            <button id="logoutBtn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                                Logout
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <div class="articles-container">
+                    
+                    <!-- Filter Bar -->
+                    <div class="filter-bar">
+                        <div class="search-box">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                            <input type="text" id="searchInput" placeholder="Cari artikel...">
+                        </div>
+                        <div class="category-pills">
+                            <button class="pill active" data-category="all">Semua</button>
+                            <button class="pill" data-category="umkm">UMKM</button>
+                            <button class="pill" data-category="fiskal">Fiskal</button>
+                            <button class="pill" data-category="kepatuhan">Kepatuhan</button>
+                            <button class="pill" data-category="profesi">Profesi Bebas</button>
+                            <button class="pill" data-category="planning">Tax Planning</button>
+                        </div>
+                    </div>
+
+                    <!-- Articles Grid -->
+                    <div class="articles-grid" id="articlesGrid">
+                        
+                        <!-- Article 1 -->
+                        <div class="article-card" data-category="umkm">
+                            <div class="article-image umkm">
+                                <span class="article-category">UMKM</span>
+                                📊
+                            </div>
+                            <div class="article-content">
+                                <h3>Panduan Lengkap PPh Final UMKM 0,5%</h3>
+                                <p>Everything you need to know tentang PPh Final UMKM, fasilitas Rp 500 juta pertama, dan cara menghitungnya dengan benar.</p>
+                                <div class="article-meta">
+                                    <span>📖 5 menit baca</span>
+                                    <span>📅 10 Jul 2026</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Article 2 -->
+                        <div class="article-card" data-category="fiskal">
+                            <div class="article-image fiskal">
+                                <span class="article-category">Fiskal</span>
+                                ️
+                            </div>
+                            <div class="article-content">
+                                <h3>Koreksi Fiskal: Apa yang Boleh dan Tidak Boleh</h3>
+                                <p>Memahami perbedaan biaya komersial dan fiskal agar tidak kena sanksi saat pemeriksaan pajak oleh DJP.</p>
+                                <div class="article-meta">
+                                    <span>📖 8 menit baca</span>
+                                    <span>📅 08 Jul 2026</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Article 3 -->
+                        <div class="article-card" data-category="kepatuhan">
+                            <div class="article-image kepatuhan">
+                                <span class="article-category">Kepatuhan</span>
+                                📅
+                            </div>
+                            <div class="article-content">
+                                <h3>Kalender Pajak 2026: Jangan Sampai Terlewat</h3>
+                                <p>Daftar lengkap deadline SPT Masa dan Tahunan untuk tahun 2026. Simpan artikel ini agar tidak kena denda!</p>
+                                <div class="article-meta">
+                                    <span> 4 menit baca</span>
+                                    <span>📅 05 Jul 2026</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Article 4 -->
+                        <div class="article-card" data-category="profesi">
+                            <div class="article-image profesi">
+                                <span class="article-category">Profesi Bebas</span>
+                                💼
+                            </div>
+                            <div class="article-content">
+                                <h3>NPPN untuk Dokter, Notaris, dan Konsultan</h3>
+                                <p>Cara menghitung pajak dengan Norma Perhitungan Penghasilan Neto (NPPN) yang lebih menguntungkan.</p>
+                                <div class="article-meta">
+                                    <span>📖 6 menit baca</span>
+                                    <span> 03 Jul 2026</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Article 5 -->
+                        <div class="article-card" data-category="umkm">
+                            <div class="article-image ppn">
+                                <span class="article-category">PPN</span>
+                                
+                            </div>
+                            <div class="article-content">
+                                <h3>PPN 11%: Siapa yang Wajib dan Bagaimana Menghitungnya</h3>
+                                <p>Panduan lengkap tentang PPN untuk PKP dan non-PKP, termasuk cara mengkreditkan PPN Masukan.</p>
+                                <div class="article-meta">
+                                    <span> 7 menit baca</span>
+                                    <span>📅 01 Jul 2026</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Article 6 -->
+                        <div class="article-card" data-category="planning">
+                            <div class="article-image planning">
+                                <span class="article-category">Tax Planning</span>
+                                🔮
+                            </div>
+                            <div class="article-content">
+                                <h3>5 Strategi Tax Planning Legal untuk UMKM</h3>
+                                <p>Cara mengurangi beban pajak secara legal tanpa melanggar aturan. Bukan penggelapan pajak, tapi efisiensi!</p>
+                                <div class="article-meta">
+                                    <span>📖 10 menit baca</span>
+                                    <span>📅 28 Jun 2026</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/session.js"></script>
+    <script>
+        // ==========================================
+        // 1. THEME TOGGLE
+        // ==========================================
+        const themeToggle = document.getElementById('themeToggle');
+        const savedTheme = localStorage.getItem('pajakone_theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme');
+            const next = current === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('pajakone_theme', next);
+            updateThemeIcon(next);
+        });
+
+        function updateThemeIcon(theme) {
+            const moon = document.querySelector('.icon-moon');
+            const sun = document.querySelector('.icon-sun');
+            if (theme === 'dark') { moon.style.display = 'none'; sun.style.display = 'block'; } 
+            else { moon.style.display = 'block'; sun.style.display = 'none'; }
+        }
+
+        // ==========================================
+        // 2. USER MENU & DROPDOWN
+        // ==========================================
+        const userMenuBtn = document.getElementById('userMenuBtn');
+        const userDropdown = document.getElementById('userDropdown');
+        
+        userMenuBtn.addEventListener('click', (e) => { e.stopPropagation(); userDropdown.classList.toggle('active'); });
+        document.addEventListener('click', (e) => {
+            if (!userMenuBtn.contains(e.target) && !userDropdown.contains(e.target)) { userDropdown.classList.remove('active'); }
+        });
+
+        // ==========================================
+        // 3. SIDEBAR TOGGLE (MOBILE)
+        // ==========================================
+        document.getElementById('sidebarToggle').addEventListener('click', () => {
+            document.getElementById('sidebar').classList.toggle('active');
+        });
+
+        // ==========================================
+        // 4. LOGOUT HANDLERS
+        // ==========================================
+        function handleLogout() {
+            if (confirm('Apakah Anda yakin ingin logout?')) {
+                SessionManager.destroySession();
+                window.location.href = 'index.html';
+            }
+        }
+        document.getElementById('logoutBtn').addEventListener('click', handleLogout);
+        document.getElementById('sidebarLogout').addEventListener('click', handleLogout);
+
+        // ==========================================
+        // 5. LOAD USER DATA TO TOPBAR
+        // ==========================================
+        function loadUserData() {
+            const user = SessionManager.getCurrentUser();
+            if (!user) return;
+            
+            document.getElementById('userAvatarDisplay').textContent = user.name.charAt(0).toUpperCase();
+            document.getElementById('userNameDisplay').textContent = user.name;
+            document.getElementById('userRoleDisplay').textContent = user.role || 'free';
+            document.getElementById('dropdownName').textContent = user.name;
+            document.getElementById('dropdownEmail').textContent = user.email;
+        }
+
+        // ==========================================
+        // 6. SEARCH & FILTER FUNCTIONALITY
+        // ==========================================
+        const searchInput = document.getElementById('searchInput');
+        const pills = document.querySelectorAll('.pill');
+        const articleCards = document.querySelectorAll('.article-card');
+        let activeCategory = 'all';
+
+        function filterArticles() {
+            const searchTerm = searchInput.value.toLowerCase();
+            
+            articleCards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const desc = card.querySelector('p').textContent.toLowerCase();
+                const category = card.getAttribute('data-category');
+                
+                const matchesSearch = title.includes(searchTerm) || desc.includes(searchTerm);
+                const matchesCategory = activeCategory === 'all' || category === activeCategory;
+                
+                if (matchesSearch && matchesCategory) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        searchInput.addEventListener('input', filterArticles);
+
+        pills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                pills.forEach(p => p.classList.remove('active'));
+                pill.classList.add('active');
+                activeCategory = pill.getAttribute('data-category');
+                filterArticles();
+            });
+        });
+
+        // ==========================================
+        // INIT
+        // ==========================================
+        loadUserData();
+    </script>
+</body>
+</html>
